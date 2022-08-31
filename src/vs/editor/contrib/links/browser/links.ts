@@ -213,6 +213,7 @@ export class LinkDetector extends Disposable implements IEditorContribution {
 		if (!occurrence) {
 			return;
 		}
+		console.log('before open link occurence');
 		this.openLinkOccurrence(occurrence, mouseEvent.hasSideBySideModifier, true /* from user gesture */);
 	}
 

@@ -153,6 +153,7 @@ class VisualEditorState {
 			}
 		});
 
+		console.log('before restoring the scroll state');
 		scrollState?.restore(editor);
 
 		// decorations
@@ -1192,6 +1193,7 @@ export class DiffEditorWidget extends Disposable implements editorBrowser.IDiffE
 	}
 
 	private _updateDecorations(): void {
+		console.log('inside of _updateDecorations');
 		if (!this._originalEditor.getModel() || !this._modifiedEditor.getModel()) {
 			return;
 		}
@@ -1205,6 +1207,7 @@ export class DiffEditorWidget extends Disposable implements editorBrowser.IDiffE
 
 		try {
 			this._currentlyChangingViewZones = true;
+			console.log('apply in diffEditorWidget');
 			this._originalEditorState.apply(this._originalEditor, this._originalOverviewRuler, diffDecorations.original, false);
 			this._modifiedEditorState.apply(this._modifiedEditor, this._modifiedOverviewRuler, diffDecorations.modified, true);
 		} finally {

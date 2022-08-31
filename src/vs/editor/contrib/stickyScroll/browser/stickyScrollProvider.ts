@@ -88,6 +88,7 @@ export class StickyLineCandidateProvider extends Disposable {
 	}
 
 	public async update(): Promise<void> {
+		console.log('inside of update()');
 		this._cts?.dispose(true);
 		this._cts = new CancellationTokenSource();
 		await this.updateOutlineModel(this._cts.token);

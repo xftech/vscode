@@ -111,6 +111,7 @@ export class StickyScrollWidget extends Disposable implements IOverlayWidget {
 				let currentHTMLChild: HTMLElement;
 
 				getDefinitionsAtPosition(this._languageFeatureService.definitionProvider, this._editor.getModel(), new Position(lineNumber, column + 1), cancellationToken.token).then((candidateDefinitions => {
+					console.log('get definitions at positions');
 					if (cancellationToken.token.isCancellationRequested) {
 						return;
 					}
@@ -143,9 +144,11 @@ export class StickyScrollWidget extends Disposable implements IOverlayWidget {
 			sessionStore.clear();
 		}));
 		linkGestureStore.add(gesture.onExecute(async e => {
+			console.log('on execute');
 			if ((e.target as unknown as CustomMouseEvent).detail !== this.getId()) {
 				return;
 			}
+			console.log('after the if check');
 			if (e.hasTriggerModifier) {
 				// Control click
 				if (this._candidateDefinitionsLength > 1) {

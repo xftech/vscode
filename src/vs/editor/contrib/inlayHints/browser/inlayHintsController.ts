@@ -313,6 +313,7 @@ export class InlayHintsController implements IEditorContribution {
 				const part = label.part;
 				if (part.location) {
 					// location -> execute go to def
+					console.log('inside of inlay hints');
 					this._instaService.invokeFunction(goToDefinitionWithLocation, e, this._editor as IActiveCodeEditor, part.location);
 				} else if (languages.Command.is(part.command)) {
 					// command -> execute it

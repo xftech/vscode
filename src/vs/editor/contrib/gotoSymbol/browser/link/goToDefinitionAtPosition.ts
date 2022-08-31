@@ -64,6 +64,7 @@ export class GotoDefinitionAtPositionEditorContribution implements IEditorContri
 
 		this.toUnhook.add(linkGesture.onExecute((mouseEvent: ClickLinkMouseEvent) => {
 			if (this.isEnabled(mouseEvent)) {
+				console.log('inside of goToDefinitionAtPosition');
 				this.gotoDefinition(mouseEvent.target.position!, mouseEvent.hasSideBySideModifier).then(() => {
 					this.removeLinkDecorations();
 				}, (error: Error) => {
